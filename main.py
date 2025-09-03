@@ -155,6 +155,7 @@ def ollama_chat(model: str, messages: List[Dict[str, str]], temperature: float =
         "messages": messages,
         "temperature": temperature,
         "top_p": top_p,
+        "stream": False, # fix für Ollama-Fehler: Extra data: line 2 column 1 (char 122)
     }
     if max_tokens is not None:
         payload["options"] = {"num_predict": max_tokens}
