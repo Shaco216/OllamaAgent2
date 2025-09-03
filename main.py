@@ -41,7 +41,6 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import re
 import sys
 from dataclasses import dataclass, field
 from typing import List, Dict, Any
@@ -67,6 +66,8 @@ SUPPORTED_MODELS = [
     "llama3",
     "mistral",
     "phi3",
+    "qwen2.5-coder:3b",
+    "qwen2.5-coder:7b",
     "qwen2",
     "gemma2",
 ]
@@ -86,6 +87,7 @@ ALLOWED_OPS = {
     ast.Mod: op.mod,
     ast.FloorDiv: op.floordiv,
 }
+
 
 def _eval_expr(node):
     if isinstance(node, ast.Num):
