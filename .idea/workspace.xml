@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c85e17-11a8-4671-87d5-cb532d5bcc5d" name="Changes" comment="readme angepasst">
+    <list default="true" id="85c85e17-11a8-4671-87d5-cb532d5bcc5d" name="Changes" comment="kleiner fix, dass kein stream of json sondern nur noch json erwartet wird">
+      <change afterPath="$PROJECT_DIR$/download2_5qwen-coder_3b.bat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,13 +105,22 @@
       <option name="project" value="LOCAL" />
       <updated>1756895445539</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="kleiner fix, dass kein stream of json sondern nur noch json erwartet wird">
+      <option name="closed" value="true" />
+      <created>1756896438557</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1756896438558</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="new modell" />
     <MESSAGE value="readme angepasst" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme angepasst" />
+    <MESSAGE value="kleiner fix, dass kein stream of json sondern nur noch json erwartet wird" />
+    <option name="LAST_COMMIT_MESSAGE" value="kleiner fix, dass kein stream of json sondern nur noch json erwartet wird" />
   </component>
 </project>
