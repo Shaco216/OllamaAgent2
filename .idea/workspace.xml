@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c85e17-11a8-4671-87d5-cb532d5bcc5d" name="Changes" comment="kleiner fix, dass kein stream of json sondern nur noch json erwartet wird">
-      <change afterPath="$PROJECT_DIR$/download2_5qwen-coder_3b.bat" afterDir="false" />
+    <list default="true" id="85c85e17-11a8-4671-87d5-cb532d5bcc5d" name="Changes" comment="batches für den download und start von qwen2.5:3b">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,12 +29,13 @@
   &quot;keyToString&quot;: {
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/OllamaAgent2/.venv&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/OllamaAgent2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\OllamaAgent2" />
       <recent name="C:\Users\User\PycharmProjects\OllamaAgent2\.venv" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -113,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756896438558</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="batches für den download und start von qwen2.5:3b">
+      <option name="closed" value="true" />
+      <created>1756990719264</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1756990719264</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -121,6 +130,7 @@
     <MESSAGE value="new modell" />
     <MESSAGE value="readme angepasst" />
     <MESSAGE value="kleiner fix, dass kein stream of json sondern nur noch json erwartet wird" />
-    <option name="LAST_COMMIT_MESSAGE" value="kleiner fix, dass kein stream of json sondern nur noch json erwartet wird" />
+    <MESSAGE value="batches für den download und start von qwen2.5:3b" />
+    <option name="LAST_COMMIT_MESSAGE" value="batches für den download und start von qwen2.5:3b" />
   </component>
 </project>

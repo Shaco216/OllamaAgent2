@@ -17,3 +17,5 @@ falls dieses nicht vorhanden sein sollte oder unter ollama nicht gefunden wird m
 für ein 8GB Gerät empfiehlt sich qwen2.5-coder:3b und für 16gb qwen2.5-coder:7b
 
 Wenn du magst, passe ich dir den Agenten sofort an (weitere Tools, JSON-I/O, LangChain, Web-UI, Dockerfile, Windows-Startskript, etc.).
+
+check via cmd if port is used: netstat -ano | findstr 11434
