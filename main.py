@@ -205,15 +205,15 @@ class Agent:
 
 # -------------------------------- CLI / Tools ---------------------------------
 HELP_TEXT = """
-[bold]Verfügbare Befehle[/bold]
-/help                 – diese Hilfe anzeigen
-/calc <expr>          – sicheren Taschenrechner nutzen (z. B. /calc (2+3)*4)
-/save <text>          – Notiz speichern
-/recall               – alle Notizen anzeigen
-/files                – Speicherdatei & Pfad anzeigen
-/clear                – Memory leeren (Notizen & Persona)
-/persona <text>       – Persona/System-Prompt setzen
-/quit                 – Programm beenden
+[bold]Verfügbare Befehle[/bold]\n
+/help                 – diese Hilfe anzeigen\n
+/calc <expr>          – sicheren Taschenrechner nutzen (z. B. /calc (2+3)*4)\n
+/save <text>          – Notiz speichern\n
+/recall               – alle Notizen anzeigen\n
+/files                – Speicherdatei & Pfad anzeigen\n
+/clear                – Memory leeren (Notizen & Persona)\n
+/persona <text>       – Persona/System-Prompt setzen\n
+/quit                 – Programm beenden\n
 
 Ohne Slash-Befehl wird deine Eingabe an das Modell geschickt.
 """
