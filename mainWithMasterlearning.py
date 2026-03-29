@@ -146,6 +146,18 @@ class Memory:
         self.data["persona"] = text.strip() or DEFAULT_SYSTEM_PROMPT
         self.save()
 
+    def add_to_persona(self, text: str):
+        """
+        Hängt Text an die bestehende Persona an.
+        """
+        text = text.strip()
+        if not text:
+            return  # nichts zu tun
+
+        current = self.data.get("persona", DEFAULT_SYSTEM_PROMPT)
+        self.data["persona"] = current + "\n" + text
+        self.save()
+
     def get_persona(self) -> str:
         return self.data.get("persona", DEFAULT_SYSTEM_PROMPT)
 
@@ -175,6 +187,25 @@ class Memory:
     def clear_master(self):
         self.data["master_profile"] = []
         self.save()
+
+    def show_all_infos(self):
+        table = Table(title="Alle gespeicherten Informationen", show_lines=True)
+
+        table.add_column("Kategorie", style="cyan", no_wrap=True)
+        table.add_column("Inhalt", style="magenta", overflow="fold")
+
+        # Persona
+        table.add_row("Persona", self.get_persona())
+
+        # Notizen
+        notes = self.list_notes()
+        table.add_row("Notizen", "\n".join(notes) if notes else "[dim]Keine Notizen[/dim]")
+
+        # Master/User-Profil
+        master = self.get_master_info()
+        table.add_row("User-Profil", "\n".join(master) if master else "[dim]Keine Infos[/dim]")
+
+        return table
 
 
 # ------------------------------ Ollama Chat Call -------------------------------
@@ -248,11 +279,13 @@ HELP_TEXT = """\
 /help            – diese Hilfe anzeigen  
 /calc <expr>     – sicheren Taschenrechner nutzen (z. B. /calc (2+3)*4)  
 /files           – Speicherdatei & Pfad anzeigen  
-/clear           – Memory komplett leeren  
+/clear           – Memory komplett leeren
+/show            - Zeigt alle gespeicherten Infos  
 
 /persona <text>  – Persona/System-Prompt setzen  
 /showPersona     – aktuelle Persona anzeigen  
-/clearPersona    – setzt die Persona zurück  
+/clearPersona    – setzt die Persona zurück
+/learnPersona    - Informationen über Persona hinzufügen  
 
 /learn <text>    – Informationen über dich speichern  
 /showMaster      – gespeicherte Infos über dich anzeigen  
@@ -364,7 +397,13 @@ def main():
             mem.set_persona(persona)
             console.print("[green]Persona aktualisiert.[/green]")
             continue
-        elif user_in.startswith("/learn"):
+        elif user_in.startswith("/learnPersona"):
+            persona_add = user_in[len("/learnPersona"):].strip()
+            if not persona_add:
+                persona_add = Prompt.ask("Erzähl mir mehr über mich")
+            mem.add_to_persona(persona_add)
+            console.print("[green]Persona aktualisiert.[/green]")
+        elif user_in == "/learn":
             info = user_in[len("/learn"):].strip()
             if not info:
                 info = Prompt.ask("Was soll ich über dich lernen?")
@@ -387,6 +426,8 @@ def main():
             persona = mem.get_persona()
             console.print(Panel(persona, title="Aktuelle Persona"))
             continue
+        elif user_in == "/show":
+            console.print(mem.show_all_infos())
         else:
             # normal chat
             reply = agent.reply(user_in)

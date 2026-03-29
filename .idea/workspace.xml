@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c85e17-11a8-4671-87d5-cb532d5bcc5d" name="Changes" comment="help angepasst">
-      <change afterPath="$PROJECT_DIR$/mainWithMasterlearning.py" afterDir="false" />
+    <list default="true" id="85c85e17-11a8-4671-87d5-cb532d5bcc5d" name="Changes" comment="anpassung help">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainWithMasterlearning.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainWithMasterlearning.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774777459015</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="anpassung help">
+      <option name="closed" value="true" />
+      <created>1774781396249</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1774781396249</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -156,6 +164,7 @@
     <MESSAGE value="batches für den download und start von qwen2.5:3b" />
     <MESSAGE value="readme angepasst" />
     <MESSAGE value="help angepasst" />
-    <option name="LAST_COMMIT_MESSAGE" value="help angepasst" />
+    <MESSAGE value="anpassung help" />
+    <option name="LAST_COMMIT_MESSAGE" value="anpassung help" />
   </component>
 </project>
