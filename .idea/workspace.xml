@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85c85e17-11a8-4671-87d5-cb532d5bcc5d" name="Changes" comment="anpassung help">
+    <list default="true" id="85c85e17-11a8-4671-87d5-cb532d5bcc5d" name="Changes" comment="anpassung method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainWithMasterlearning.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainWithMasterlearning.py" afterDir="false" />
     </list>
@@ -181,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774781396249</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="anpassung method">
+      <option name="closed" value="true" />
+      <created>1774785830138</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1774785830138</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -192,6 +200,7 @@
     <MESSAGE value="readme angepasst" />
     <MESSAGE value="help angepasst" />
     <MESSAGE value="anpassung help" />
-    <option name="LAST_COMMIT_MESSAGE" value="anpassung help" />
+    <MESSAGE value="anpassung method" />
+    <option name="LAST_COMMIT_MESSAGE" value="anpassung method" />
   </component>
 </project>

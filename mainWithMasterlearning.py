@@ -221,7 +221,7 @@ def ollama_chat(model: str, messages: List[Dict[str, str]], temperature: float =
         payload["options"] = {"num_predict": max_tokens}
 
     try:
-        resp = requests.post(OLLAMA_URL, json=payload, timeout=120)
+        resp = requests.post(OLLAMA_URL, json=payload, timeout=300)
         resp.raise_for_status()
         data = resp.json()
         # Ollama's /api/chat returns a dict with 'message' at the end of stream mode
@@ -326,10 +326,89 @@ def show_notes(mem: Memory):
         table.add_row(str(i), n)
     console.print(table)
 
+MODEL_STORE_PATH = "model_store.json"
+
+
+def load_model_store():
+    if os.path.exists(MODEL_STORE_PATH):
+        with open(MODEL_STORE_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    else:
+        data = {
+            "last_used": None,
+            "models": []
+        }
+        save_model_store(data)
+        return data
+
+
+def save_model_store(data):
+    with open(MODEL_STORE_PATH, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def choose_model():
+    store = load_model_store()
+    models = store.get("models", [])
+    last_used = store.get("last_used")
+
+    console.print("\n[bold cyan]Modellauswahl[/bold cyan]\n")
+
+    if models:
+        table = Table(title="Gespeicherte Modelle")
+        table.add_column("#", justify="right")
+        table.add_column("Modell")
+
+        for i, m in enumerate(models, 1):
+            marker = " (zuletzt verwendet)" if m == last_used else ""
+            table.add_row(str(i), m + marker)
+
+        console.print(table)
+
+    else:
+        console.print("[yellow]Keine Modelle gespeichert.[/yellow]")
+
+    console.print("\nOptionen:")
+    console.print("[green]Nummer eingeben[/green] → Modell wählen")
+    console.print("[green]n[/green] → neues Modell hinzufügen")
+    console.print("[green]ENTER[/green] → letztes Modell verwenden\n")
+
+    choice = Prompt.ask("Auswahl", default="")
+
+    # ENTER → last used
+    if choice == "" and last_used:
+        return last_used
+
+    # neues Modell
+    if choice.lower() == "n":
+        new_model = Prompt.ask("Name des neuen Modells (z.B. llama3, mistral, qwen2.5-coder:7b)")
+        if new_model not in models:
+            models.append(new_model)
+        store["models"] = models
+        store["last_used"] = new_model
+        save_model_store(store)
+        return new_model
+
+    # Auswahl per Nummer
+    try:
+        idx = int(choice) - 1
+        if 0 <= idx < len(models):
+            selected = models[idx]
+            store["last_used"] = selected
+            save_model_store(store)
+            return selected
+    except ValueError:
+        pass
+
+    console.print("[red]Ungültige Auswahl – fallback auf Standard (llama3)[/red]")
+    return "llama3"
+
 
 def main():
+    selected_model = choose_model()
+
     parser = argparse.ArgumentParser(description="Lokaler Agent ohne API-Keys (Ollama)")
-    parser.add_argument("--model", default="llama3", help=f"Ollama-Modell ({', '.join(SUPPORTED_MODELS)} oder beliebig, falls installiert)")
+    parser.add_argument("--model", default=selected_model, help=f"Ollama-Modell ({', '.join(SUPPORTED_MODELS)} oder beliebig, falls installiert)")
     parser.add_argument("--memory", default=MEMORY_PATH, help="Pfad zur Memory-JSON")
     args = parser.parse_args()
 
