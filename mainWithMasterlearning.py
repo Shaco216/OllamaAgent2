@@ -190,7 +190,6 @@ class Memory:
 
     def show_all_infos(self):
         table = Table(title="Alle gespeicherten Informationen", show_lines=True)
-
         table.add_column("Kategorie", style="cyan", no_wrap=True)
         table.add_column("Inhalt", style="magenta", overflow="fold")
 
