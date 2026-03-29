@@ -303,7 +303,7 @@ Ohne Slash-Befehl wird deine Eingabe an das Modell geschickt.
 
 def print_header(model: str, memory_path: str):
     console.print(Panel.fit(f"[bold]Lokaler Python-Agent[/bold]\nModell: [cyan]{model}[/cyan]\nMemory: [magenta]{memory_path}[/magenta]", title="Agent gestartet", width=80))
-    console.print(Panel(Markdown("**Tipps:** Nutze `/persona` zum Feinjustieren des Stils. `/help` zeigt alle Befehle.")))
+    console.print(Panel(Markdown("**Tipps:** Nutze `/persona` zum Setzen und überschreiben des Stils und /learnPersona zum Feinjustieren und hinzufügen des Stils. `/help` zeigt alle Befehle.")))
 
 
 def cmd_calc(expr: str):
@@ -402,12 +402,12 @@ def main():
                 persona_add = Prompt.ask("Erzähl mir mehr über mich")
             mem.add_to_persona(persona_add)
             console.print("[green]Persona aktualisiert.[/green]")
-        elif user_in == "/learn":
+        elif user_in.startswith("/learn") and not user_in.startswith("/learnPersona"):
             info = user_in[len("/learn"):].strip()
             if not info:
                 info = Prompt.ask("Was soll ich über dich lernen?")
             mem.add_master_info(info)
-            console.print("[green]Gespeichert (User-Profil).[/green]")
+            console.print("[green]Gespeichert (Master-Profil).[/green]")
             continue
         elif user_in.startswith("/showMaster"):
             info = mem.get_master_info()
